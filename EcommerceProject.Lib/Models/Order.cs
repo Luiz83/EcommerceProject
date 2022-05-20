@@ -49,5 +49,21 @@ namespace EcommerceProject.Lib.Models
         {
             return Date;
         }
+        public void AddProduct(Product product)
+        {
+            Products.Add(product);
+        }
+        public void RemoveProduct(Product product)
+        {
+            Products.RemoveAll(p => p.GetId == product.GetId);
+        }
+        public double CompleteOrder(){
+            var totalAmount = 0.0;
+            foreach (Product product in Products)
+            {
+                totalAmount = totalAmount + product.GetValue();
+            }
+            return TotalAmount = totalAmount;
+        }
     }
 }

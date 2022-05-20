@@ -18,5 +18,13 @@ namespace EcommerceProject.Lib.Models
         {
             return Mechanical;
         }
+        public override double CalcValue(double value)
+        {
+            if (Mechanical)
+                value = value + 200;
+            if (Wireless)
+                value = value * 1.15;
+            return value;
+        }
     }
 }

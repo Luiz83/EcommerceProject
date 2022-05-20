@@ -18,5 +18,12 @@ namespace EcommerceProject.Lib.Models
         {
             return Dpi;
         }
+        public override double CalcValue(double value)
+        {
+            value = value + (Dpi / 50);
+            if (Wireless)
+                value = value * 1.15;
+            return value;
+        }
     }
 }

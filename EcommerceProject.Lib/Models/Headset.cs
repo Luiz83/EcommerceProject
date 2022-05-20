@@ -18,5 +18,15 @@ namespace EcommerceProject.Lib.Models
         {
             return Surround;
         }
+        public override double CalcValue(double value)
+        {
+            if (Surround && Wireless)
+            {
+                value = value + 500;
+            }
+            else if (Surround || Wireless)
+                value = value + 150;
+            return value;
+        }
     }
 }
