@@ -2,16 +2,17 @@ namespace EcommerceProject.Lib.Models
 {
     public class Product
     {
-        private int Id { get; set; }
-        private string Name { get; set; }
-        private string Brand { get; set; }
-        private string Description { get; set; }
-        protected double Value { get; set; }
-        private int Quantity { get; set; }
-        protected bool Wireless { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Brand { get; set; }
+        public string Description { get; set; }
+        public double Value { get; set; }
+        public int Quantity { get; set; }
+        public bool Wireless { get; set; }
 
-        public Product(string name, string brand, string description, double value, int quantity, bool wireless)
+        public Product(int id, string name, string brand, string description, double value, int quantity, bool wireless)
         {
+            SetId(id);
             SetName(name);
             SetBrand(brand);
             SetDescription(description);

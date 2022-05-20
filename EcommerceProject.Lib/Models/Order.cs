@@ -8,11 +8,11 @@ namespace EcommerceProject.Lib.Models
         public string Status { get; set; }
         public DateTime Date { get; set; }
 
-        public Order(Client client, double totalAmount, string status, DateTime date)
+        public Order(Client client, string status, DateTime date)
         {
             Products = new List<Product>();
+            TotalAmount = 0;
             SetClient(client);
-            SetTotalAmount(totalAmount);
             SetStatus(status);
             SetDate(date);
         }
@@ -55,14 +55,20 @@ namespace EcommerceProject.Lib.Models
         }
         public void RemoveProduct(Product product)
         {
-            Products.RemoveAll(p => p.GetId == product.GetId);
+            Products.Remove(product);
         }
-        public double CompleteOrder(){
+        public void RemoveProduct(int id)
+        {
+            Products.RemoveAll(p => p.GetId() == id);
+        }
+        public double CompleteOrder()
+        {
             var totalAmount = 0.0;
             foreach (Product product in Products)
             {
                 totalAmount = totalAmount + product.GetValue();
             }
+            Status = "Finalizado";
             return TotalAmount = totalAmount;
         }
     }

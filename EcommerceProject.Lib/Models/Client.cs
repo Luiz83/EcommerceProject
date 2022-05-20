@@ -2,8 +2,8 @@ namespace EcommerceProject.Lib.Models
 {
     public class Client : User
     {
-        private string Cpf { get; set; }
-        private string Address { get; set; }
+        public string Cpf { get; set; }
+        public string Address { get; set; }
 
         public Client(string name, string email, string password, string cpf, string address) : base(name, email, password)
         {

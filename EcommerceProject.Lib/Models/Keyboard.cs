@@ -2,10 +2,10 @@ namespace EcommerceProject.Lib.Models
 {
     public class Keyboard : Product
     {
-        private bool Mechanical { get; set; }
+        public bool Mechanical { get; set; }
 
-        public Keyboard(string name, string brand, string description, double value, int quantity, bool wireless, bool mechanical)
-                    : base(name, brand, description, value, quantity, wireless)
+        public Keyboard(int id, string name, string brand, string description, double value, int quantity, bool wireless, bool mechanical)
+                    : base(id, name, brand, description, value, quantity, wireless)
         {
             SetMechanical(mechanical);
         }
